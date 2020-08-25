@@ -1,0 +1,7 @@
+git init  //luo uuden repon
+git add .  //lisää kaikki tiedostot staging-alueelle
+git commit -m muutokset   //lukitsee muutokset
+
+git remote add origin https://github.com/Orlian/DigiMedia.git   //GitHub repon osoite
+git push -u origin master  //Ekalla puskukerralla
+git push   //Seuraavilla puskukerroilla
