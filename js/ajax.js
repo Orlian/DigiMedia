@@ -1,23 +1,19 @@
 'use strict';
 
+let lista = $('ul');
 
 $(function(){
   $('#hakunappi').click(function() {
     lista.empty();
     let haku = $('#hakuteksti').val();
     $.getJSON('https://api.tvmaze.com/search/shows?q=$' + haku,function(data) {
-      console.log(data, haku);
-      /*
-       for(let i = 0; i < data.length; i++){
-          console.log(data[i]);
-       }
-       */
       $.each(data, function(index, value){
-        console.log(value);
+        if(value.show.image !== null){
+          lista.append('<li><img src="' + value.show.image.medium + '"><h3>'+ value.show.name +'</h3>'+ value.show.summary + '</li>')
+        } else {
+          lista.append('<li><img src=""><h3>'+ value.show.name +'</h3>'+ value.show.summary + '</li>')
+        }
       });
     });
   });
-
-  let lista = $('ul');
-
 });
